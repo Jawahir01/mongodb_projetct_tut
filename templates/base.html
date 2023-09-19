@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,49 @@
     <!-- Materialize Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
     <title>Task Manager</title>
 </head>
+
 <body>
-    <h1>Task Manager APP</h1>
+    <header>
+        <!-- top navbar -->
+        <nav class="nav-extended text-shadow light-blue darken-1">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_tasks') }}" class="brand-logo">Task Manager</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class=" medium material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_tasks') }}">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">New Task</a></li>
+                    <li><a href="#">Manage Categories</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- mobile sidenav -->
+        <ul class="sidenav" id="mobile-demo">
+            <li>
+                <h4 class="center-align light-blue-text text-darken 4">Task Manager</h4>
+            </li>
+            <li><a href="{{ url_for('get_tasks') }}">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">New Task</a></li>
+            <li><a href="#">Manage Categories</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+    </header>
+
     {% block content%}
 
     {% endblock %}
@@ -23,13 +58,14 @@
 
 
     <!-- Compiled and minified jQuery Core 3.7.1 -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- Main JavaScript File -->
-    <script src="{{ url_for('static', filename= 'js/script.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block script%}
     {% endblock %}
 </body>
+
 </html>
